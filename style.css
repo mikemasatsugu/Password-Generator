@@ -65,8 +65,8 @@ Color Palette
 
 
 .container {
-  height: 400px;
-  width: 400px;
+  height: 500px;
+  width: 450px;
   border-style: solid;
   border-width: 2px;
   border-color: #dbedf3;
@@ -82,7 +82,7 @@ Color Palette
 
 .result-div {
   height: 25px;
-  width: 300px;
+  width: 400px;
   background-color: #11141f;
   position: relative;
   display:block;
