@@ -1,6 +1,7 @@
 # PASSWORD GENERATOR PROJECT
 ### A project by Mike Masatsugu
-
+Project link:
+https://mikemasatsugu.github.io/Password-Generator/
 
 ## What is this project?
 This is project meant to practice:
