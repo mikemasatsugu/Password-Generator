@@ -20,3 +20,8 @@ The main objective is to create a password of varying length that can include up
 ## When will the project be complete?
 The MVP will be done by May 20th, 2021.
 Nice-to-haves will be done by the end of May.
+
+
+
+### Timeline
+MVP achieved - 05.16.21
