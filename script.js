@@ -75,7 +75,7 @@ function adaptivePasswordGenerator() {
   if (hasNum === true) {functions.push(randomNumber)}
   if (hasSpecials === true) {functions.push(randomSpecial)}
   
-  for (let i = 0 ; i < passLength + 1 ; i++) {
+  for (let i = 0 ; i < passLength - 1 + 1 ; i++) {
     let char = functions[Math.floor(Math.random()*functions.length)]
     passArray.push(char());
 
