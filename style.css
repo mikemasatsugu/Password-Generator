@@ -12,6 +12,8 @@ Color Palette
 
 /* IDs */
 
+* { margin:0; padding:0; }
+
 #clipboard-btn {
   margin: 10px auto auto auto;
   position: relative;
@@ -62,7 +64,9 @@ Color Palette
 
 /* Classes */
 
-
+.parent {
+  display: flex;
+}
 
 .container {
   height: 450px;
@@ -70,14 +74,13 @@ Color Palette
   border-style: solid;
   border-width: 2px;
   border-color: #dbedf3;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -225px;
-  margin-left: -225px;
   background-color: #283149;
   border-radius: 5px;
   padding: 10px 30px 10px 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .result-div {
