@@ -7,15 +7,43 @@
   <title>Password Generator</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;800&display=swap" rel="stylesheet">
-  <script src="script.js"></script>
+  
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
   <div class="container">
     <h1>Password Generator</h1>
     <div class="result-div">
+      <p id="generated-pass"></p>
     </div>
     <button id="clipboard-btn">Copy to Clipboard</button>
+    <div class="slider-div">
+      <h2 id="header2">Password Length : <span id="length-val"></span></h2>
+      <input type="range" min="0" max="30" value="15" class="slider" id="length" oninput="document.getElementById('length').innerHTML = this.value">
+      <output id="output"></output>
+    </div>
+    <div class="user-setting">
+      <label>Include upper-case letters</label>
+      <input type="checkbox" id="uppercase" checked="checked"/>
+    </div>
+
+    <div class="user-setting">
+      <label>Include lower-case letters</label>
+      <input type="checkbox" id="lowercase" checked="checked"/>
+    </div>
+
+    <div class="user-setting">
+      <label>Include numbers</label>
+      <input type="checkbox" id="num" checked="checked"/>
+    </div>
+
+    <div class="user-setting">
+      <label>Include special characters</label>
+      <input type="checkbox" id="specials" checked="checked"/>
+    </div>
+
+    <button id="generate-pass">Generate Password</button>
   </div>
 </body>
+<script src="script.js"></script>
 </html>

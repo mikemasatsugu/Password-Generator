@@ -6,53 +6,96 @@ TODO:
  - Use event listener checkboxes to determine what types of characters password should include
 */
 
-// functions for randomLowerCase, randomUpperCase, and randomSpecial will use the String.fromCharCode() method character set.
-// https://www.w3schools.com/html/html_charset.asp
-
 
 // Values to get by user input
-const passElement = document.getElementById('pass')
-const lengthElement = document.getElementById('length')
-const uppercaseElement = document.getElementById('uppercase')
-const lowercaseElement = document.getElementById('lowercase')
-const numElement = document.getElementById('num')
-const specialsElement = document.getElementById('specials')
-const generatePassElement = document.getElementById('generatePass')
-const copyToClipElement = document.getElementById('copyToClip')
+let lengthElement = document.getElementById("length").value;
+const uppercaseElement = document.getElementById('uppercase');
+const lowercaseElement = document.getElementById('lowercase');
+const numElement = document.getElementById('num');
+const specialsElement = document.getElementById('specials');
+const generatePassElement = document.getElementById('generatePass');
+const copyToClipElement = document.getElementById('copyToClip');
+
+
 
 
 // Random character generator functions
 function randomLowerCase() {
-  return String.fromCharCode(Math.floor(Math.random()*26) + 97)
+  const legend = "abcdefghijklmnopqrstuvwxyz"
+  return legend[Math.floor(Math.random() * legend.length)]
 }
+// console.log(randomLowerCase())
 
 function randomUpperCase() {
-  return String.fromCharCode(Math.floor(Math.random()*26) + 65)
+  const legend = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  return legend[Math.floor(Math.random() * legend.length)]
 }
+// console.log(randomUpperCase())
 
 function randomNumber() {
   return String(Math.floor(Math.random()*10))
 }
 
 function randomSpecial() {
-  const specials = '!@#$%^&*()_+-=[]{};:\'",<.>/?\\'
-  return specials[Math.floor(Math.random() * specials.length)]
-}
-
-const randomFunctions = {
-  lowerCase: randomLowerCase,
-  upperCase: randomUpperCase,
-  number: randomNumber,
-  special: randomSpecial
+  const legend = '!@#$%^&*()_+-=[]{};:\'",<.>/?\\'
+  return legend[Math.floor(Math.random() * legend.length)]
 }
 
 
-// Event Listeners
-generatePassElement.addEventListener('click', () => {
-  const length = parseInt(lengthElement.nodeValue);
+// EVENT LISTENERS
+
+// For displaying password length 
+document.addEventListener('mousemove', function() {
+  let x = document.getElementById("length").value;
+  document.getElementById("length-val").innerHTML = x;
+})
+
+
+
+// For creating password on btn click
+document.getElementById("generate-pass").addEventListener('click', adaptivePasswordGenerator)
+
+// For copying password to clipboard on btn click
+document.getElementById("clipboard-btn").addEventListener('click', copyPasswordToClipboard)
+
+
+// FUNCTIONS
+
+function adaptivePasswordGenerator() {
+  let passLength = parseInt(document.getElementById("length").value);
   const hasLowerCase = lowercaseElement.checked;
   const hasUpperCase = uppercaseElement.checked;
   const hasNum = numElement.checked;
   const hasSpecials = specialsElement.checked;
   
-})
+  const functions = [];
+  const passArray = [];
+  if (hasLowerCase === true) {functions.push(randomLowerCase)}
+  if (hasUpperCase === true) {functions.push(randomUpperCase)}
+  if (hasNum === true) {functions.push(randomNumber)}
+  if (hasSpecials === true) {functions.push(randomSpecial)}
+  
+  for (let i = 0 ; i < passLength + 1 ; i++) {
+    let char = functions[Math.floor(Math.random()*functions.length)]
+    passArray.push(char());
+
+  } return document.getElementById("generated-pass").innerHTML = passArray.join('');
+}
+
+
+
+function copyPasswordToClipboard() {
+  const textToCopy = document.getElementById('generated-pass').innerText;
+
+  let myTemporaryInputElement = document.createElement("input");
+    myTemporaryInputElement.type = "text";
+    myTemporaryInputElement.value = textToCopy;
+
+  document.body.appendChild(myTemporaryInputElement)
+
+  myTemporaryInputElement.select();
+  document.execCommand("Copy");
+
+  document.body.removeChild(myTemporaryInputElement);
+  alert("Password has been copied to clipboard.")
+}
