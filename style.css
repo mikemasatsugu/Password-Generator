@@ -1,0 +1,80 @@
+/* 
+Color Palette
+#283149 - Dark blue (background)
+#404b69 - Blue/grey (subtle accents, borders, outlines)
+#f73859 - Sunset red/orange (buttons, main accents, pop-out elements)
+  #f56981 - Button Hover
+  #c42b46 - Button Click
+#dbedf3 - Light grey (text)
+#11141f - Results div background
+*/
+
+
+/* IDs */
+
+#clipboard-btn {
+  margin: 10px auto auto auto;
+  position: relative;
+  display: flex;
+  text-align: center;
+  background-color: #f73859;
+  font-size: 12px;
+  border: 0;
+  border-radius: 5px;
+  padding: 3px 10px 3px 10px;
+  transition-duration: 0.1s;
+}
+
+#clipboard-btn:hover {
+  background-color: #f56981;
+}
+#clipboard-btn:active {
+  background-color: #c42b46;
+}
+
+
+/* Classes */
+
+
+
+.container {
+  height: 400px;
+  width: 300px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #dbedf3;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -150px;
+  background-color: #283149;
+  border-radius: 5px;
+}
+
+.result-div {
+  height: 40px;
+  width: 250px;
+  background-color: #11141f;
+  position: relative;
+  display: flex;
+  margin: 10px auto auto auto;
+  border-radius: 3px;
+}
+
+
+/* Tags */
+
+h1 {
+  color: #dbedf3;
+  text-align: center;
+  font-size: 24px;
+}
+
+
+
+body {
+  background-color: #404b69;
+  color: #dbedf3;
+  font-family: "Raleway", sans-serif;
+}

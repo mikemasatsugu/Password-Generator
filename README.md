@@ -15,6 +15,7 @@ The main objective is to create a password of varying length that can include up
 - A minimal explanation of the importance of a good, unique password
 - A count of the number of data breaches/leaked username/password pairs in the years 2015-2020
 - Some statistics about unique passwords
+- A "Copy to clipboard" button
 
 ## When will the project be complete?
 The MVP will be done by May 20th, 2021.
