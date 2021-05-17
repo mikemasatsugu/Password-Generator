@@ -1,36 +1,16 @@
-/*
-TODO:
- - Create functions to generate random character (string) for each character type (uppercaseletter, lowercaseletter, number, special character)
- - Create function that creates array of random characters of a given length
- - Use event listener to get desired array length from page
- - Use event listener checkboxes to determine what types of characters password should include
-*/
-
-
-// Values to get by user input
-let lengthElement = document.getElementById("length").value;
-const uppercaseElement = document.getElementById('uppercase');
-const lowercaseElement = document.getElementById('lowercase');
-const numElement = document.getElementById('num');
-const specialsElement = document.getElementById('specials');
-const generatePassElement = document.getElementById('generatePass');
-const copyToClipElement = document.getElementById('copyToClip');
-
-
 
 
 // Random character generator functions
+
 function randomLowerCase() {
   const legend = "abcdefghijklmnopqrstuvwxyz"
   return legend[Math.floor(Math.random() * legend.length)]
 }
-// console.log(randomLowerCase())
 
 function randomUpperCase() {
   const legend = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   return legend[Math.floor(Math.random() * legend.length)]
 }
-// console.log(randomUpperCase())
 
 function randomNumber() {
   return String(Math.floor(Math.random()*10))
@@ -40,6 +20,7 @@ function randomSpecial() {
   const legend = '!@#$%^&*()_+-=[]{};:/",<.>/?'
   return legend[Math.floor(Math.random() * legend.length)]
 }
+
 
 
 // EVENT LISTENERS
@@ -75,6 +56,15 @@ document.getElementById("clipboard-btn").addEventListener('click', copyPasswordT
 
 // FUNCTIONS
 
+
+// Values to get by user input
+let lengthElement = document.getElementById("length").value;
+const uppercaseElement = document.getElementById('uppercase');
+const lowercaseElement = document.getElementById('lowercase');
+const numElement = document.getElementById('num');
+const specialsElement = document.getElementById('specials');
+
+// Main function that generates passwords based on user input parameters
 function adaptivePasswordGenerator() {
   let passLength = document.getElementById("length").value;
   const hasLowerCase = lowercaseElement.checked;
@@ -102,7 +92,7 @@ function adaptivePasswordGenerator() {
 }
 
 
-
+// To copy the generated password to the clipboard
 function copyPasswordToClipboard() {
   const textToCopy = document.getElementById('generated-pass').innerText;
 
