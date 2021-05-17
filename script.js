@@ -37,7 +37,7 @@ function randomNumber() {
 }
 
 function randomSpecial() {
-  const legend = '!@#$%^&*()_+-=[]{};:\'",<.>/?\\'
+  const legend = '!@#$%^&*()_+-=[]{};:/",<.>/?'
   return legend[Math.floor(Math.random() * legend.length)]
 }
 
@@ -47,13 +47,13 @@ function randomSpecial() {
 //For displaying password length on page load
 window.onload = () => {
   let x = document.getElementById("length").value;
-  document.getElementById("length-val").innerHTML = x;
+  document.getElementById("length-val").innerText = x;
 }
 
 // For displaying password length on input change
 document.addEventListener('input', function() {
   let x = document.getElementById("length").value;
-  document.getElementById("length-val").innerHTML = x;
+  document.getElementById("length-val").innerText = x;
 })
 
 // For re-running password generator on input change
@@ -76,7 +76,7 @@ document.getElementById("clipboard-btn").addEventListener('click', copyPasswordT
 // FUNCTIONS
 
 function adaptivePasswordGenerator() {
-  let passLength = parseInt(document.getElementById("length").value);
+  let passLength = document.getElementById("length").value;
   const hasLowerCase = lowercaseElement.checked;
   const hasUpperCase = uppercaseElement.checked;
   const hasNum = numElement.checked;
@@ -96,9 +96,9 @@ function adaptivePasswordGenerator() {
     passArray.push(char());
     
   } 
- 
+  console.log(passArray.length)
   if (passArray.length === 0) {return document.getElementById("generated-pass").innerHTML = "No password to return: Length set to 0."}
-  return document.getElementById("generated-pass").innerHTML = passArray.join('');
+  return document.getElementById("generated-pass").innerText = passArray.join('');
 }
 
 
@@ -118,3 +118,21 @@ function copyPasswordToClipboard() {
   document.body.removeChild(myTemporaryInputElement);
   alert("Password has been copied to clipboard.")
 }
+
+
+
+
+// TESTS
+
+function testPassLength() {
+  let count = 0;
+  let i = 0;
+  while (i < 100) {
+    if (adaptivePasswordGenerator().length === 30) {
+      count++
+    }
+    i++
+  } console.log(`Correct answers: ${count} / 100`)
+}
+
+testPassLength()
