@@ -25,45 +25,42 @@ function randomSpecial() {
 
 // EVENT LISTENERS
 
-//For displaying password length on page load
 window.onload = () => {
   let x = document.getElementById("length").value;
   document.getElementById("length-val").innerText = x;
 }
 
-// For displaying password length on input change
 document.addEventListener('input', function() {
   let x = document.getElementById("length").value;
   document.getElementById("length-val").innerText = x;
 })
 
-// For re-running password generator on input change
+
 document.addEventListener('input', adaptivePasswordGenerator) 
 
-// For re-running every time an option is checked/unchecked
+
 document.getElementById('uppercase').addEventListener('click', adaptivePasswordGenerator)
 document.getElementById('lowercase').addEventListener('click', adaptivePasswordGenerator)
 document.getElementById('num').addEventListener('click', adaptivePasswordGenerator)
 document.getElementById('specials').addEventListener('click', adaptivePasswordGenerator)
 
 
-// For creating password on btn click
+
 document.getElementById("generate-pass").addEventListener('click', adaptivePasswordGenerator)
 
-// For copying password to clipboard on btn click
 document.getElementById("clipboard-btn").addEventListener('click', copyPasswordToClipboard)
 
 
 // FUNCTIONS
 
-// Values to get by user input
+
 let lengthElement = document.getElementById("length").value;
 const uppercaseElement = document.getElementById('uppercase');
 const lowercaseElement = document.getElementById('lowercase');
 const numElement = document.getElementById('num');
 const specialsElement = document.getElementById('specials');
 
-// Main function that generates passwords based on user input parameters
+
 function adaptivePasswordGenerator() {
   let passLength = document.getElementById("length").value;
   const hasLowerCase = lowercaseElement.checked;
@@ -90,7 +87,6 @@ function adaptivePasswordGenerator() {
 }
 
 
-// To copy the generated password to the clipboard
 function copyPasswordToClipboard() {
   const textToCopy = document.getElementById('generated-pass').innerText;
 
