@@ -58,7 +58,6 @@ Color Palette
   font-size: 16px;
   color: #dbedf3;
   text-align: center;
-  padding: auto;
   position: relative;
 }
 
@@ -90,7 +89,7 @@ Color Palette
   position: relative;
   display:block;
   margin: 10px auto auto auto;
-  padding: auto;
+  padding: 5px auto 5px auto;
   border-radius: 3px;
   text-align: center;
   align-items: center;
@@ -118,9 +117,18 @@ Color Palette
 }
 
 .user-setting {
-  display: flex;
-  margin: 20px auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 15px auto auto 50px;
 }
+
+input[type=checkbox] {
+	margin-right: 50px;
+}
+
+
+
 
 /* Tags */
 
