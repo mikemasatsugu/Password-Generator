@@ -44,12 +44,23 @@ function randomSpecial() {
 
 // EVENT LISTENERS
 
-// For displaying password length 
-document.addEventListener('mousemove', function() {
+//For displaying password length on page load
+window.onload = () => {
+  let x = document.getElementById("length").value;
+  document.getElementById("length-val").innerHTML = x;
+}
+
+// For displaying password length on input change
+document.addEventListener('input', function() {
   let x = document.getElementById("length").value;
   document.getElementById("length-val").innerHTML = x;
 })
 
+// For re-running every time an option is checked/unchecked
+document.getElementById('uppercase').addEventListener('click', adaptivePasswordGenerator)
+document.getElementById('lowercase').addEventListener('click', adaptivePasswordGenerator)
+document.getElementById('num').addEventListener('click', adaptivePasswordGenerator)
+document.getElementById('specials').addEventListener('click', adaptivePasswordGenerator)
 
 
 // For creating password on btn click
@@ -74,12 +85,17 @@ function adaptivePasswordGenerator() {
   if (hasUpperCase === true) {functions.push(randomUpperCase)}
   if (hasNum === true) {functions.push(randomNumber)}
   if (hasSpecials === true) {functions.push(randomSpecial)}
+
+  if (hasLowerCase === false && hasUpperCase === false && hasNum === false && hasSpecials === false) {return document.getElementById("generated-pass").innerHTML = "Please select at least one parameter below."}
   
   for (let i = 0 ; i < passLength - 1 + 1 ; i++) {
     let char = functions[Math.floor(Math.random()*functions.length)]
     passArray.push(char());
-
-  } return document.getElementById("generated-pass").innerHTML = passArray.join('');
+    
+  } 
+ 
+  if (passArray.length === 0) {return document.getElementById("generated-pass").innerHTML = "No password to return: Length set to 0."}
+  return document.getElementById("generated-pass").innerHTML = passArray.join('');
 }
 
 
