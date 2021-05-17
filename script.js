@@ -56,6 +56,9 @@ document.addEventListener('input', function() {
   document.getElementById("length-val").innerHTML = x;
 })
 
+// For re-running password generator on input change
+document.addEventListener('input', adaptivePasswordGenerator) 
+
 // For re-running every time an option is checked/unchecked
 document.getElementById('uppercase').addEventListener('click', adaptivePasswordGenerator)
 document.getElementById('lowercase').addEventListener('click', adaptivePasswordGenerator)
