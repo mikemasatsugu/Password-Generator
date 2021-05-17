@@ -17,9 +17,14 @@ function randomNumber() {
 }
 
 function randomSpecial() {
-  const legend = '!@#$%^&*()_+-=[]{};:/",<.>/?'
+  const legend = '!@#$%^&*()_+-=[]{};:/,<.>/?'
   return legend[Math.floor(Math.random() * legend.length)]
 }
+/** 
+ * Be very wary of the characters added here to randomSpecial - especially anything that would need an exclusion operator.
+ * These will be imported as single characters and joined in a string.  
+ * Do NOT add characters that will interfere with that execution.
+ **/
 
 
 
@@ -54,7 +59,6 @@ document.getElementById("clipboard-btn").addEventListener('click', copyPasswordT
 // FUNCTIONS
 
 
-let lengthElement = document.getElementById("length").value;
 const uppercaseElement = document.getElementById('uppercase');
 const lowercaseElement = document.getElementById('lowercase');
 const numElement = document.getElementById('num');
@@ -82,10 +86,15 @@ function adaptivePasswordGenerator() {
     passArray.push(char());
     
   } 
-  if (passArray.length === 0) {return document.getElementById("generated-pass").innerHTML = "No password to return: Length set to 0."}
+  if (passArray.length === 0) {return document.getElementById("generated-pass").innerText = "No password to return: Length set to 0."}
   return document.getElementById("generated-pass").innerText = passArray.join('');
 }
-
+/**
+ * If adding functionality in the future, make sure to use .innerText property instead of .innerHTML or .textContent where applicable.
+ * Using innerHTML can, in some cases, hold a different value than innerText that will not match the
+ * parameters given by the user - specifically, the length will be different.  This has to do with the event listeners
+ * attached to the 'input' event on the range slider.
+ */
 
 function copyPasswordToClipboard() {
   const textToCopy = document.getElementById('generated-pass').innerText;
