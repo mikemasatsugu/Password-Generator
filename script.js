@@ -96,7 +96,7 @@ function adaptivePasswordGenerator() {
     passArray.push(char());
     
   } 
-  console.log(passArray.length)
+  // console.log(passArray.length)
   if (passArray.length === 0) {return document.getElementById("generated-pass").innerHTML = "No password to return: Length set to 0."}
   return document.getElementById("generated-pass").innerText = passArray.join('');
 }
@@ -122,17 +122,17 @@ function copyPasswordToClipboard() {
 
 
 
-// TESTS
+// // TESTS
 
-function testPassLength() {
-  let count = 0;
-  let i = 0;
-  while (i < 100) {
-    if (adaptivePasswordGenerator().length === 30) {
-      count++
-    }
-    i++
-  } console.log(`Correct answers: ${count} / 100`)
-}
+// function testPassLength() {
+//   let count = 0;
+//   let i = 0;
+//   while (i < 100) {
+//     if (adaptivePasswordGenerator().length === 30) {
+//       count++
+//     }
+//     i++
+//   } console.log(`Correct answers: ${count} / 100`)
+// }
 
-testPassLength()
+// testPassLength()
