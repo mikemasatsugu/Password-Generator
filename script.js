@@ -1,6 +1,6 @@
 
 
-// Random character generator functions
+// Randomized character generator functions
 
 function randomLowerCase() {
   const legend = "abcdefghijklmnopqrstuvwxyz"
@@ -56,7 +56,6 @@ document.getElementById("clipboard-btn").addEventListener('click', copyPasswordT
 
 // FUNCTIONS
 
-
 // Values to get by user input
 let lengthElement = document.getElementById("length").value;
 const uppercaseElement = document.getElementById('uppercase');
@@ -86,7 +85,6 @@ function adaptivePasswordGenerator() {
     passArray.push(char());
     
   } 
-  // console.log(passArray.length)
   if (passArray.length === 0) {return document.getElementById("generated-pass").innerHTML = "No password to return: Length set to 0."}
   return document.getElementById("generated-pass").innerText = passArray.join('');
 }
